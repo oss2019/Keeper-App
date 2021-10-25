@@ -25,6 +25,8 @@ src\
 
 To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
 
+For Documentation of note-related api endpoints go through this [postman-collection](https://www.postman.com/payload-candidate-52272214/workspace/new/collection/16775855-60d88a4f-d91a-4896-958e-fe078d91fc13)
+
 ### API Endpoints
 
 List of available routes:
@@ -47,8 +49,8 @@ List of available routes:
 
 
 **Note routes**:\
-`POST   /api/v1/note/:userId` - create a Note
-`GET    /api/v1/note/:userId` - get all Notes created by a user.(paginated)
+`POST   /api/v1/note/:userId` - create a Note\
+`GET    /api/v1/note/:userId` - get all Notes created by a user.(paginated)\
 `DELETE /api/v1/note/:userId` - Delete a specified note of the user. 
 
 ## Error Handling
@@ -263,3 +265,6 @@ To prevent a certain file or directory from being linted, add it to `.eslintigno
 
 To maintain a consistent coding style across different IDEs, the project contains `.editorconfig`
 
+## Credits
+
+Thanks to hagopj13 for his amazing boilerplate code [here](https://github.com/hagopj13/node-express-boilerplate).
