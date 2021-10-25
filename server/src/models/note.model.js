@@ -4,8 +4,19 @@ const { toJSON, paginate } = require('./plugins');
 
 const noteSchema = mongoose.Schema(
     {
-        title: String,
-        content: String
+        authorId :{
+            type: mongoose.Types.ObjectId,
+            require : true,
+        },
+        title: {
+           type: String,
+           require : true,
+        },
+        
+        content: {
+            type : String,
+            require : true,
+        },
     },
     {
         timestamps: true
@@ -16,6 +27,9 @@ const noteSchema = mongoose.Schema(
 noteSchema.plugin(toJSON);
 noteSchema.plugin(paginate);
 
-const Note = mongoose.model('note', noteSchema);
+/**
+ * @typedef Note
+ */
+const Note = mongoose.model('Note', noteSchema);
 
 module.exports = Note;
