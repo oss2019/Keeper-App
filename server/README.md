@@ -1,4 +1,4 @@
-# RESTful API Node Server for keeper-app
+# RESTful API Node Server for Keeper-App
 
 ## Environment Variables
 
@@ -30,24 +30,26 @@ To view the list of available APIs and their specifications, run the server and 
 List of available routes:
 
 **Auth routes**:\
-`POST /v1/auth/register` - register\
-`POST /v1/auth/login` - login\
-`POST /v1/auth/refresh-tokens` - refresh auth tokens\
-`POST /v1/auth/forgot-password` - send reset password email\
-`POST /v1/auth/reset-password` - reset password\
-`POST /v1/auth/send-verification-email` - send verification email\
-`POST /v1/auth/verify-email` - verify email
+`POST /api/v1/auth/register` - register\
+`POST /api/v1/auth/login` - login\
+`POST /api/v1/auth/refresh-tokens` - refresh auth tokens\
+`POST /api/v1/auth/forgot-password` - send reset password email\
+`POST /api/v1/auth/reset-password` - reset password\
+`POST /api/v1/auth/send-verification-email` - send verification email\
+`POST /api/v1/auth/verify-email` - verify email
 
 **User routes**:\
-`POST /v1/users` - create a user\
-`GET /v1/users` - get all users\
-`GET /v1/users/:userId` - get user\
-`PATCH /v1/users/:userId` - update user\
-`DELETE /v1/users/:userId` - delete user
+`POST   /api/v1/users` - create a user\
+`GET    /api/v1/users` - get all users\
+`GET    /api/v1/users/:userId` - get user\
+`PATCH  /api/v1/users/:userId` - update user\
+`DELETE /api/v1/users/:userId` - delete user
 
 
 **Note routes**:\
-`POST /v1/note` - create a Note
+`POST   /api/v1/note/:userId` - create a Note
+`GET    /api/v1/note/:userId` - get all Notes created by a user.(paginated)
+`DELETE /api/v1/note/:userId` - Delete a specified note of the user. 
 
 ## Error Handling
 
