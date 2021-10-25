@@ -8,6 +8,15 @@ const createNote = {
       }),
 };
 
+const getNotes = {
+    body: Joi.object().keys({
+        sortBy: Joi.string(),
+        limit: Joi.number().integer(),
+        page: Joi.number().integer(),
+    })
+}
+
 module.exports = {
-    createNote
+    createNote,
+    getNotes
 }

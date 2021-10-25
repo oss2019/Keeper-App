@@ -27,8 +27,8 @@ const createNote = async (noteBody, authorId) =>{
  * @param {number} [options.page] - Current page (default = 1)
  * @returns {Promise<QueryResult>}
  * */
-const getNotes = async (email, options)=>{
-    const notes = await Note.paginate({authorEmail : email},options);
+const getNotes = async (authorId, options)=>{
+    const notes = await Note.paginate({authorId : authorId},options);
     return notes;
 }
 

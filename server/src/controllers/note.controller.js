@@ -9,6 +9,14 @@ const createNote = catchAsync(async (req, res) => {
     res.status(httpStatus.CREATED).send(note);
 });
 
+const getNotes = catchAsync(async (req, res) => {
+    const authorId = req.params.userId;
+    const options = pick(req.query, ['sortBy', 'limit', 'page']);
+    const result = await noteService.getNotes(authorId, options);
+    res.send(result);
+  });
+
 module.exports = {
-    createNote
+    createNote,
+    getNotes
 }
