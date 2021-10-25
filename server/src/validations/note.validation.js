@@ -16,7 +16,14 @@ const getNotes = {
     })
 }
 
+const deleteNote = {
+    body: Joi.object().keys({
+        noteId: Joi.string().required(),
+    })
+}
+
 module.exports = {
     createNote,
-    getNotes
+    getNotes,
+    deleteNote
 }

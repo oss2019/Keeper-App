@@ -1,7 +1,7 @@
 // services for notes
 const httpStatus = require('http-status');
 const auth = require('../middlewares/auth');
-const { Note, User } = require('../models')
+const { Note } = require('../models')
 const ApiError = require('../utils/ApiError');
 
 /**
@@ -10,9 +10,6 @@ const ApiError = require('../utils/ApiError');
  * @returns {Promise<Note>}
  */
 const createNote = async (noteBody, authorId) =>{
-    if(!User.findById(authorId)){
-        throw new ApiError(httpStatus.BAD_REQUEST, 'User Id is not valid.');
-    }
     const note = Object.assign({'authorId':authorId}, noteBody)
     return Note.create(note);
 }
@@ -32,7 +29,22 @@ const getNotes = async (authorId, options)=>{
     return notes;
 }
 
+const getNoteById = async (id) => {
+    return Note.findById(id);
+  };
+
+const deleteNoteById = async (noteId)=>{
+    const note = await getNoteById(noteId);
+    if(!note){
+        throw new ApiError(httpStatus.NOT_FOUND, 'Note not found');
+    }
+    await note.remove();
+    return note;
+}
+
 module.exports = {
     createNote,
-    getNotes
+    getNotes,
+    getNoteById,
+    deleteNoteById
 }
