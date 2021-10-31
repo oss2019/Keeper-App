@@ -9,7 +9,6 @@ const router = express.Router();
 
 // route for patch  note with user id and note id as params
 
-
 router.route('/:userId').post(auth('getUsers'),validate(noteValidation.createNote),noteController.createNote)
 .get(auth('getUsers'),validate(noteValidation.getNotes),noteController.getNotes)                                                            
 .delete(auth('manageUsers'),validate(noteValidation.deleteNote),noteController.deleteNoteById)
