@@ -7,7 +7,9 @@ examples : [postman-collection](https://www.postman.com/payload-candidate-522722
 
 * Make sure NODE_ENV is set to `development` in ecosystem.config.json
 
-* `run npm i` and `npm run dev` in root of server folder to start server.
+* `run npm i` in root of server folder to start server to install all dependencies.
+
+*  `npm run dev` to start server in development mode. 
 
 * you can use software like [postman](https://www.getpostman.com/) to test the API.
 
