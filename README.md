@@ -39,8 +39,8 @@ npm start<br>
 
 - [x] Adding a '+' button fixed on bottom right of the screen to add a new note. (2)
 - [ ] Being able to delete an existing note. (2)
-- [ ] Adding a NodeJS server. (2)
-- [ ] Adding a login screen (only UI). (3)
+- [x] Adding a NodeJS server. (2)
+- [x] Adding a login screen (only UI). (3)
 - [ ] Persisting and fetching data from a database. (4)
 - [ ] Making the app responsive. (2)
 - [ ] Adding tags from a pre-existing list of tags to the notes. (3)
