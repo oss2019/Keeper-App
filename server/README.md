@@ -1,8 +1,15 @@
 # RESTful API Node Server for Keeper-App
 examples : [postman-collection](https://www.postman.com/payload-candidate-52272214/workspace/new/collection/16775855-60d88a4f-d91a-4896-958e-fe078d91fc13)
-## Environment Variables
 
-copy the contents of `.env.example` to `.env` and change the database url, smtp settings.
+## Setup for development
+
+* copy the contents of `.env.example` to `.env` and change the database url, smtp settings. for smtp credentials you can get them from [etherial](https://etherial.com/). 
+
+* Make sure NODE_ENV is set to `development` in ecosystem.config.json
+
+* `run npm i` and `npm run dev` in root of server folder to start server.
+
+* you can use software like [postman](https://www.getpostman.com/) to test the API.
 
 ## Project Structure
 
@@ -26,6 +33,9 @@ src\
 To view the list of available APIs and their specifications, run the server and go to `http://localhost:3000/api/v1/docs` in your browser. This documentation page is automatically generated using the [swagger](https://swagger.io/) definitions written as comments in the route files.
 
 For Documentation of note-related api endpoints go through this [postman-collection](https://www.postman.com/payload-candidate-52272214/workspace/new/collection/16775855-60d88a4f-d91a-4896-958e-fe078d91fc13)
+
+
+
 
 ### API Endpoints
 
@@ -53,6 +63,107 @@ List of available routes:
 `GET    /api/v1/note/:userId` - get all Notes created by a user.(paginated)\
 `DELETE /api/v1/note/:userId` - Delete a specified note of the user. \
 `PATCH  /api/v1/note/:userId` - Update a specified note of the user.
+
+## POST /api/v1/note/:userId
+
+creates a note for a user and sends note back.
+
+#### req.body: 
+```
+    "title": "edited title",
+    "content" : "edited title"
+}
+```
+
+
+
+
+## GET /api/v1/note/:userId
+
+gets user notes.
+
+#### req.body 
+
+none
+
+
+#### response:
+
+```
+{
+    "results": [
+        {
+            "authorId": "6176835f48e20d3b14465868",
+            "title": "second fake title",
+            "content": "fake content",
+            "id": "6176867a48e20d3b1446587e"
+        },
+        {
+            "authorId": "6176835f48e20d3b14465868",
+            "title": "second fake title",
+            "content": "fake content",
+            "id": "6176876148e20d3b1446588a"
+        },
+        {
+            "authorId": "6176835f48e20d3b14465868",
+            "title": "second fake title",
+            "content": "fake content",
+            "id": "6176876948e20d3b1446588d"
+        },
+        {
+            "authorId": "6176835f48e20d3b14465868",
+            "title": "second fake title",
+            "content": "fake content",
+            "id": "6176876a48e20d3b14465890"
+        },
+        {
+            "authorId": "6176835f48e20d3b14465868",
+            "title": "edited title",
+            "content": "edited title",
+            "id": "617e8849ac68b3335cf3b906"
+        }
+    ],
+    "page": 1,
+    "limit": 10,
+    "totalPages": 1,
+    "totalResults": 5
+}
+```
+
+## patch /api/v1/note/:userId endpoint
+
+#### req.body:
+```
+{
+    "noteId": "617e8849ac68b3335cf3b906",
+    "title": "edited title",
+    "content" : "edited title"
+}
+```
+
+#### response:
+
+```
+{
+    "authorId": "6176835f48e20d3b14465868",
+    "title": "edited title",
+    "content": "edited title",
+    "id": "617e8849ac68b3335cf3b906"
+}
+```
+
+## DELETE /api/v1/note/:userId
+
+#### req.body:
+```
+{
+    "noteId": "617e8849ac68b3335cf3b906"
+}
+```
+
+#### response: 
+
+none
 
 ## Error Handling
 
