@@ -16,6 +16,12 @@ const getNotes = catchAsync(async (req, res) => {
     res.send(result);
   });
 
+// update note
+const updateNote = catchAsync(async (req, res) => {
+    const note = await noteService.updateNote(req.body.noteId, req.body);
+    res.status(httpStatus.OK).send(note);
+});
+
 const deleteNoteById = catchAsync(async (req,res)=> {
     const noteId = req.body.noteId;
     await noteService.deleteNoteById(noteId);
@@ -25,5 +31,6 @@ const deleteNoteById = catchAsync(async (req,res)=> {
 module.exports = {
     createNote,
     getNotes,
-    deleteNoteById
+    deleteNoteById,
+    updateNote
 }

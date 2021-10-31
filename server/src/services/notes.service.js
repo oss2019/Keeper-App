@@ -33,6 +33,16 @@ const getNoteById = async (id) => {
     return Note.findById(id);
   };
 
+// update note
+const updateNote = async (noteId, noteBody) => {
+    const note = await Note.findByIdAndUpdate(noteId, noteBody, {new: true});
+    if (!note) {
+        throw new ApiError(httpStatus.NOT_FOUND, 'Note note found');
+    }
+    return note;
+};
+
+
 const deleteNoteById = async (noteId)=>{
     const note = await getNoteById(noteId);
     if(!note){
@@ -46,5 +56,6 @@ module.exports = {
     createNote,
     getNotes,
     getNoteById,
-    deleteNoteById
+    deleteNoteById,
+    updateNote
 }

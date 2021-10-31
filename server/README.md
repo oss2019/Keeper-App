@@ -51,7 +51,8 @@ List of available routes:
 **Note routes**:\
 `POST   /api/v1/note/:userId` - create a Note\
 `GET    /api/v1/note/:userId` - get all Notes created by a user.(paginated)\
-`DELETE /api/v1/note/:userId` - Delete a specified note of the user. 
+`DELETE /api/v1/note/:userId` - Delete a specified note of the user. \
+`PATCH  /api/v1/note/:userId` - Update a specified note of the user.
 
 ## Error Handling
 
