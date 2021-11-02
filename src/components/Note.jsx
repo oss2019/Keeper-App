@@ -12,6 +12,7 @@ function Note(props){
           {props.content}
       </p>
       <button onClick={deleteNote}>Delete Note</button>
+
       </div>);
 }
 
